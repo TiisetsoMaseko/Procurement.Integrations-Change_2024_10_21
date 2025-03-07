@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "135186c9-674d-47f0-bfd0-c49d3052566c",
+		"name": "Ntirho-cXML",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30594560"
+	},
+	"item": [
+		{
+			"name": "Send Invoice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "procedure-xRHhRl0nMyiWP84iXR27l-F1TwpUy",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Invoice",
+							"value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE cXML SYSTEM \"http://xml.cXML.org/schemas/cXML/1.2.059/InvoiceDetail.dtd\"><cXML version=\"1.0\" payloadID=\"1240598937@devtrunk.coupahost.com\" timestamp=\"2009-05-04T01:24:51-07:00\"><Header><From><Credential domain=\"DUNS\"><Identity>supplierid</Identity></Credential></From><To><Credential domain=\"DUNS\"><Identity>buyerid</Identity></Credential></To><Sender><Credential domain=\"DUNS\"><Identity>supplierid</Identity><SharedSecret>secret</SharedSecret></Credential><UserAgent>Your Very Own Agent 1.23</UserAgent></Sender></Header><Request deploymentMode=\"production\"><InvoiceDetailRequest><InvoiceDetailRequestHeader invoiceID=\"3492\" purpose=\"standard\" operation=\"new\" invoiceDate=\"2009-05-01T11:45:51-07:00\"><InvoiceDetailHeaderIndicator /><InvoiceDetailLineIndicator isAccountingInLine=\"yes\" /><PaymentTerm payInNumberOfDays=\"30\" /></InvoiceDetailRequestHeader><InvoiceDetailOrder><InvoiceDetailOrderInfo><OrderReference><DocumentReference payloadID=\"123\" /></OrderReference></InvoiceDetailOrderInfo><InvoiceDetailItem invoiceLineNumber=\"1\" quantity=\"1\"><UnitOfMeasure>EA</UnitOfMeasure><UnitPrice><Money currency=\"USD\">365</Money></UnitPrice><InvoiceDetailItemReference lineNumber=\"1\"><Description xml:lang=\"en\">NEW 1 NINTENDO WII GAME CONSOLE + WII FIT BUNDLE +GAMES</Description></InvoiceDetailItemReference><SubtotalAmount><Money currency=\"USD\">365</Money></SubtotalAmount></InvoiceDetailItem></InvoiceDetailOrder><InvoiceDetailSummary><SubtotalAmount><Money currency=\"USD\">365</Money></SubtotalAmount><Tax><Money currency=\"USD\">8</Money><Description xml:lang=\"en\">total tax</Description><TaxDetail purpose=\"tax\" category=\"CA\" percentageRate=\"8.25\" taxPointDate=\"2009-04-24T11:45:51-07:00\"><TaxableAmount><Money currency=\"USD\">365</Money></TaxableAmount><TaxAmount><Money currency=\"USD\">8</Money></TaxAmount><TaxLocation xml:lang=\"en\">CA</TaxLocation></TaxDetail></Tax><SpecialHandlingAmount><Money currency=\"USD\">5</Money></SpecialHandlingAmount><ShippingAmount><Money currency=\"USD\">30</Money></ShippingAmount><NetAmount><Money currency=\"USD\" /></NetAmount></InvoiceDetailSummary></InvoiceDetailRequest></Request></cXML>",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "Invoice",
+							"value": "{\"Request\":{\"Body\":{\"InvoiceDetailRequestHeader\":{\"invoiceDate\":\"2009-05-01T20:45:51+02:00\",\"invoiceDateString\":\"2009-05-01T20:45:51.0000000+02:00\",\"operation\":\"new\",\"purpose\":\"standard\",\"invoiceOrigin\":null,\"invoiceID\":\"3492\",\"InvoiceDetailHeaderIndicator\":{},\"InvoiceDetailLineIndicator\":{\"isAccountingInLine\":\"yes\",\"isTaxInLine\":null},\"InvoicePartner\":null,\"PaymentTerm\":{\"payInNumberOfDays\":30},\"Comments\":null},\"InvoiceDetailOrder\":{\"InvoiceDetailOrderInfo\":{\"OrderReference\":{\"DocumentReference\":{\"payloadID\":\"123\"}}},\"InvoiceDetailItem\":[{\"quantity\":1,\"invoiceLineNumber\":1,\"UnitOfMeasure\":\"EA\",\"UnitPrice\":{\"Money\":{\"currency\":\"USD\",\"Value\":365.0}},\"InvoiceDetailItemReference\":{\"lineNumber\":1,\"ItemID\":null,\"Description\":{\"lang\":\"en\",\"Value\":\"NEW 1 NINTENDO WII GAME CONSOLE + WII FIT BUNDLE +GAMES\"}},\"SubtotalAmount\":{\"Money\":{\"currency\":\"USD\",\"Value\":365.0}},\"Tax\":null}]},\"InvoiceDetailSummary\":{\"SubtotalAmount\":{\"Money\":{\"currency\":\"USD\",\"Value\":365.0}},\"Tax\":{\"Money\":{\"currency\":\"USD\",\"Value\":8.0},\"Description\":{\"lang\":\"en\",\"Value\":\"total tax\"},\"TaxDetail\":{\"purpose\":\"tax\",\"category\":\"CA\",\"percentageRate\":\"8.25\",\"TaxableAmount\":{\"Money\":{\"currency\":\"USD\",\"Value\":365.0}},\"TaxAmount\":{\"Money\":{\"currency\":\"USD\",\"Value\":8.0}}}},\"NetAmount\":{\"Money\":{\"currency\":\"USD\",\"Value\":0.0}}}},\"deploymentMode\":\"production\"},\"payloadID\":\"1240598937@devtrunk.coupahost.com\",\"timestamp\":\"2009-05-04T10:24:51+02:00\",\"timestampString\":\"2009-05-04T10:24:51.0000000+02:00\",\"Header\":{\"From\":{\"Credential\":[{\"domain\":\"DUNS\",\"Identity\":{\"Value\":\"supplierid\"}}]},\"To\":{\"Credential\":[{\"domain\":\"DUNS\",\"Identity\":{\"Value\":\"buyerid\"}}]},\"Sender\":{\"Credential\":[{\"domain\":\"DUNS\",\"Identity\":{\"Value\":\"supplierid\"},\"SharedSecret\":\"secret\"}],\"UserAgent\":\"Your Very Own Agent 1.23\"}}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://couper-middleware-env.eu-west-1.elasticbeanstalk.com/MSprocure.Gateway/Invoices",
+					"protocol": "http",
+					"host": [
+						"couper-middleware-env",
+						"eu-west-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"MSprocure.Gateway",
+						"Invoices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Receive PO",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "procedure-xRHhRl0nMyiWP84iXR27l-F1TwpUy",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "PO",
+							"value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE cXML SYSTEM \"http://xml.cxml.org/schemas/cXML/1.2.014/cXML.dtd\"><cXML lang=\"en-US\" timestamp=\"2023/10/01 01:03:00\" payloadID=\"12\"><Header><From><Credential domain=\"WeirM\"><Identity>03vtWpmCr2gNzq3sSWxCLnc1q4F9a</Identity></Credential></From><To><Credential domain=\"MEM\"><Identity>355ujuzSFCuzRz60vQk69iARrFMrU</Identity></Credential></To><Sender><Credential domain=\"duns\"><Identity>dell</Identity><SharedSecret>dell</SharedSecret></Credential><UserAgent>Coupa Procurement 1.0</UserAgent></Sender></Header><Request deploymentMode=\"production\"><OrderRequest><OrderRequestHeader orderID=\"6112\" orderDate=\"2008-05-19T19:51:57+00:00\"><Total><Money currency=\"USD\">1505.0</Money></Total><ShipTo><Address isoCountryCode=\"US\" addressID=\"3119\"><Name lang=\"en\">jmadden</Name><PostalAddress name=\"default\"><DeliverTo>j maddedn</DeliverTo><Street>333 East Hill Dr</Street><City>san leandro</City><State>ca</State><PostalCode>22222</PostalCode><Country isoCountryCode=\"US\">United States</Country></PostalAddress><Email name=\"default\">jmadden@coupa1.com</Email></Address></ShipTo><BillTo><Address isoCountryCode=\"US\" addressID=\"142\"><Name lang=\"en\">SOB1</Name><PostalAddress name=\"default\"><DeliverTo>Noah Sanity Attn: Noah Noah</DeliverTo><Street>3420 Flatiron Way</Street><City>West Index</City><State>NJ</State><PostalCode>43023</PostalCode><Country isoCountryCode=\"US\">United States</Country></PostalAddress></Address></BillTo><Contact role=\"endUser\"><Name lang=\"en\">j maddedn</Name><Email name=\"default\">jmadden@coupa1.com</Email></Contact></OrderRequestHeader><ItemOut quantity=\"1\" lineNumber=\"1\"><ItemID><SupplierPartID>223-4511</SupplierPartID><SupplierPartAuxiliaryID>1005379527029\\1</SupplierPartAuxiliaryID></ItemID><ItemDetail><UnitPrice><Money currency=\"USD\">1505.0</Money></UnitPrice><Description lang=\"en\">OptiPlex 755 Energy Smart MQuad Processor Q6600</Description><UnitOfMeasure>EA</UnitOfMeasure><Classification domain=\"UNSPSC\">unknown</Classification></ItemDetail><Distribution><Accounting name=\"bbbb\"><Segment id=\"bbb\" description=\"ORG\" type=\"Organization\">1</Segment><Segment id=\"b\" description=\"DEPT\" type=\"Department\">2</Segment><Segment id=\"bb\" description=\"PROJ\" type=\"Project\">3</Segment></Accounting><Charge><Money currency=\"USD\">1505.0</Money></Charge></Distribution></ItemOut></OrderRequest></Request></cXML>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://couper-middleware-dev.eu-west-1.elasticbeanstalk.com/MSprocure.Gateway/orders",
+					"protocol": "http",
+					"host": [
+						"couper-middleware-dev",
+						"eu-west-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"MSprocure.Gateway",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "PO",
+							"value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE cXML SYSTEM \"http://xml.cxml.org/schemas/cXML/1.2.014/cXML.dtd\"><cXML lang=\"en-US\" timestamp=\"2023/10/01 01:03:00\" payloadID=\"12\"><Header><From><Credential domain=\"duns\"><Identity>dell</Identity></Credential></From><To><Credential domain=\"Duns\"><Identity>128293714</Identity></Credential></To><Sender><Credential domain=\"duns\"><Identity>dell</Identity><SharedSecret>dell</SharedSecret></Credential><UserAgent>Coupa Procurement 1.0</UserAgent></Sender></Header><Request deploymentMode=\"production\"><OrderRequest><OrderRequestHeader orderID=\"6112\" orderDate=\"2008-05-19T19:51:57+00:00\"><Total><Money currency=\"USD\">1505.0</Money></Total><ShipTo><Address isoCountryCode=\"US\" addressID=\"3119\"><Name lang=\"en\">jmadden</Name><PostalAddress name=\"default\"><DeliverTo>j maddedn</DeliverTo><Street>333 East Hill Dr</Street><City>san leandro</City><State>ca</State><PostalCode>22222</PostalCode><Country isoCountryCode=\"US\">United States</Country></PostalAddress><Email name=\"default\">jmadden@coupa1.com</Email></Address></ShipTo><BillTo><Address isoCountryCode=\"US\" addressID=\"142\"><Name lang=\"en\">SOB1</Name><PostalAddress name=\"default\"><DeliverTo>Noah Sanity Attn: Noah Noah</DeliverTo><Street>3420 Flatiron Way</Street><City>West Index</City><State>NJ</State><PostalCode>43023</PostalCode><Country isoCountryCode=\"US\">United States</Country></PostalAddress></Address></BillTo><Contact role=\"endUser\"><Name lang=\"en\">j maddedn</Name><Email name=\"default\">jmadden@coupa1.com</Email></Contact></OrderRequestHeader><ItemOut quantity=\"1\" lineNumber=\"1\"><ItemID><SupplierPartID>223-4511</SupplierPartID><SupplierPartAuxiliaryID>1005379527029\\1</SupplierPartAuxiliaryID></ItemID><ItemDetail><UnitPrice><Money currency=\"USD\">1505.0</Money></UnitPrice><Description lang=\"en\">OptiPlex 755 Energy Smart MQuad Processor Q6600</Description><UnitOfMeasure>EA</UnitOfMeasure><Classification domain=\"UNSPSC\">unknown</Classification></ItemDetail><Distribution><Accounting name=\"bbbb\"><Segment id=\"bbb\" description=\"ORG\" type=\"Organization\">1</Segment><Segment id=\"b\" description=\"DEPT\" type=\"Department\">2</Segment><Segment id=\"bb\" description=\"PROJ\" type=\"Project\">3</Segment></Accounting><Charge><Money currency=\"USD\">1505.0</Money></Charge></Distribution></ItemOut></OrderRequest></Request></cXML>",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send ASN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "procedure-xRHhRl0nMyiWP84iXR27l-F1TwpUy",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ShipNotice",
+							"value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE cXML SYSTEM \"http://xml.cXML.org/schemas/cXML/1.2.020/Fulfill.dtd\"><cXML payloadID=\"i-am-a-payload-id\" xml:lang=\"en-US\" timestamp=\"2000-10-14\"><Header><From><Credential domain=\"sSDzdfxfg\"><Identity>fgsdhgjh</Identity></Credential></From><To><Credential domain=\"sgdf\"><Identity>sdfdafdfg</Identity></Credential></To><Sender><Credential domain=\"sSDzdfxfg\"><Identity>fgsdhgjh</Identity><SharedSecret>abcde</SharedSecret></Credential><UserAgent>Random HTTP Agent</UserAgent></Sender></Header><Request deploymentMode=\"production\"><ShipNoticeRequest><ShipNoticeHeader shipmentID=\"Unique ID\" noticeDate=\"Creation date of cXML ASN\" shipmentDate=\"SHIPMENT START DATE\" deliveryDate=\"SHIPMENT DELIVERY DATE\"><Contact role=\"shipFrom\" addressID=\"Optional unique code given for address in CSP Legal Entity\"><Name xml:lang=\"en-US\">NAME OF LEGAL ENTITY</Name><PostalAddress><Street /><City /><State /><PostalCode /><Country isoCountryCode=\"US\">United States</Country></PostalAddress></Contact><Comments xml:lang=\"en-US\">Got it all into one shipment.</Comments></ShipNoticeHeader><ShipControl><CarrierIdentifier domain=\"SCAC\">USPS</CarrierIdentifier><CarrierIdentifier domain=\"companyName\">US Postal Service</CarrierIdentifier><ShipmentIdentifier>1234567890 1234567890 1234577890</ShipmentIdentifier></ShipControl><ShipNoticePortion><OrderReference orderID=\"2883\"><DocumentReference payloadID=\"2883\" /></OrderReference><ShipNoticeItem lineNumber=\"1\" quantity=\"1\"><UnitOfMeasure>EA</UnitOfMeasure></ShipNoticeItem></ShipNoticePortion></ShipNoticeRequest></Request></cXML>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:7250/asn",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7250",
+					"path": [
+						"asn"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
